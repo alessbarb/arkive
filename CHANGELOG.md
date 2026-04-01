@@ -11,6 +11,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+* nothing yet
+
+---
+
+## [0.1.0] - 2026-04-01
+
+### Added
+
 * initial local-first `arkive` CLI foundation
 * repository initialization flow with `arkive init`
 * repository status inspection with `arkive status`
@@ -114,10 +122,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+### Documentation
+
+* initial documentation structure covering:
+  * mental model
+  * vault and repository separation
+  * snapshot lifecycle
+  * restore semantics
+  * encryption approach
+* clarified product positioning as a Git complement (not a replacement)
+* introduced explicit terminology:
+  * repository
+  * vault
+  * snapshot
+  * restore
+  * binding
+* documented local-first and explicit behavior principles
+* added conceptual and workflow-oriented documentation:
+  * getting started guides
+  * core concepts
+  * reference sections
+  * internal architecture overview
+* aligned documentation tone with product philosophy:
+  * clarity over completeness
+  * explicitness over automation
+
+---
+
 ### Notes
 
-* this is the first real alpha foundation of `arkive`
-* the focus so far has been trust, explicitness, and architectural clarity
-* future work should continue to protect the product boundary:
+* first alpha foundation release of `arkive`
+* focus has been on:
+  * trust
+  * explicitness
+  * architectural clarity
+* product boundary is intentionally strict:
   * Git manages shared history
   * Arkive preserves private local state
+* documentation is considered a core part of the product, not an afterthought
