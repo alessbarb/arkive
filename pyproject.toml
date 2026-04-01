@@ -1,0 +1,125 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arkive"
+version = "0.1.0"
+description = "Local-first encrypted snapshot tool for private workspace state"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Alessandro Barbagallo", email = "alessbarb@gmail.com" }
+]
+license = "MIT"
+license-files = ["LICENSE"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Environment :: Console",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Security",
+  "Topic :: Software Development :: Build Tools",
+  "Topic :: System :: Archiving",
+  "Topic :: Utilities",
+  "Typing :: Typed",
+]
+keywords = [
+  "backup",
+  "snapshot",
+  "vault",
+  "encryption",
+  "cli",
+  "developer-tools",
+  "git-complement",
+  "local-first",
+]
+dependencies = [
+  "typer>=0.12,<1.0",
+  "pydantic>=2.7,<3.0",
+  "cryptography>=42.0,<46.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/labrynx/arkive"
+Repository = "https://github.com/labrynx/arkive"
+Issues = "https://github.com/labrynx/arkive/issues"
+Changelog = "https://github.com/labrynx/arkive/releases"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0,<9.0",
+  "pytest-cov>=5.0,<6.0",
+  "ruff>=0.11,<0.12",
+  "mypy>=1.10,<2.0",
+  "build>=1.2,<2.0",
+  "twine>=5.0,<6.0",
+]
+
+[project.scripts]
+arkive = "arkive.cli.app:app"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers --strict-config"
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+  "E",
+  "F",
+  "I",
+  "B",
+  "UP",
+  "RUF",
+  "SIM",
+  "RET",
+  "PT",
+  "BLE",
+  "C90",
+]
+ignore = []
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = [
+  "S101",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.mypy]
+python_version = "3.10"
+mypy_path = "src"
+packages = ["arkive"]
+warn_return_any = true
+warn_unused_configs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_unreachable = true
+strict_equality = true
+no_implicit_optional = true
+check_untyped_defs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_any_generics = true
+show_error_codes = true
+pretty = true
